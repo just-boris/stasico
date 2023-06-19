@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "types": ["vite/client"],
+    "target": "es2020",
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "jsx": "react-jsx"
+  }
+}

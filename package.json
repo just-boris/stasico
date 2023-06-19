@@ -1,0 +1,31 @@
+{
+  "name": "@vars/stasico",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "node scripts/server.js",
+    "build:client": "vite build --outDir dist/client",
+    "build:server": "vite build --outDir dist/server --ssr src/entry-server.tsx",
+    "build": "npm run build:client && npm run build:server",
+    "postbuild": "node scripts/prerender.js",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@cloudscape-design/components": "^3.0.314",
+    "@cloudscape-design/global-styles": "^1.0.10",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.37",
+    "@types/react-dom": "^18.0.11",
+    "@vitejs/plugin-react": "^4.0.0",
+    "express": "^4.18.2",
+    "filter-console": "^1.0.0",
+    "glob": "^10.2.7",
+    "react-router-dom": "^6.13.0",
+    "typescript": "^5.1.3",
+    "vite": "^4.3.9"
+  }
+}
