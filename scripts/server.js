@@ -23,8 +23,10 @@ app.use("*", async (req, res, next) => {
 
     template = await vite.transformIndexHtml(url, template);
     const { render } = await vite.ssrLoadModule("/src/entry-server.tsx");
-    const appHtml = await render(url);
-    const html = template.replace(`<!--ssr-outlet-->`, appHtml);
+    const renderResult = render(url);
+    const html = template
+      .replace("<!--ssr-outlet-->", renderResult.html)
+      .replace("<!-- ssr-meta -->", renderResult.meta);
     res.status(200).set({ "Content-Type": "text/html" }).end(html);
   } catch (e) {
     vite.ssrFixStacktrace(e);
